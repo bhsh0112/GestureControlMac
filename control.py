@@ -33,3 +33,6 @@ class Controller:
     def set_interval(self, interval):
         """设置按键间隔时间"""
         self.interval = interval
+    def open_finder(self):
+        """在Mac系统中打开访达（Command + Shift + E）"""
+        pyautogui.hotkey('command', 'shift', 'e')
