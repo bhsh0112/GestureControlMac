@@ -18,6 +18,28 @@ pip install -r requirements.txt
 
 ​		用户可以通过修改`shortcut.json`中的内容，指明每一手势对应的快捷键，完成对快捷键的设置（支持的手势与快捷键见下表，可以对两个表格的内容进行排列组合设置）
 
+### 0.4 代码运行
+
+完备的参数设置：
+
+```
+python main.py --weights /path/to/weight --input_path /path/to/input --output_path /path/to/output
+```
+
+参数说明：
+
+- weights：手势检测所用的权重文件
+- input_path：继承自yolo，输入也可以是图像或视频，但在本项目的应用场景下，**输出一般为摄像头(0)**
+- output_path：可以将手势检测过程保存下来，但在本项目应用场景下无意义，所以这里默认不保存
+
+综上，如果用户只想直接应用本项目，直接运行下面的命令就可以了：
+
+```
+python main.py
+```
+
+
+
 #### 支持的手势
 
 |  支持手势  | 命名 |
