@@ -4,4 +4,6 @@ from control import Controller
 ctrl = Controller()
 
 
-ctrl.take_screenshot_to_clipboard()
+ctrl.open_calendar()
+time.sleep(2)
+ctrl.switch_to_next_recent_app()

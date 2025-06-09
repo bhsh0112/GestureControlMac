@@ -40,3 +40,31 @@ class Controller:
     def take_screenshot_to_clipboard(self):
         """在Mac系统中截取全屏并复制到剪贴板"""
         subprocess.run(['screencapture', '-x', '-c'])
+
+    def open_mission_control(self):
+        """在Mac系统中打开任务控制（Mission Control）"""
+        subprocess.run(['osascript', '-e', 'tell application "System Events" to key code 100 using {control down}'])
+
+    def switch_to_next_recent_app(self):
+        """切换到下一个最近使用的应用程序"""
+        # 使用 AppleScript 模拟 Command + Tab 切换到下一个最近使用的应用程序
+        subprocess.run(['osascript', '-e', 'tell application "System Events" to key code 48 using {command down}'])
+    def open_system_settings(self):
+        """在Mac系统中打开系统设置"""
+        subprocess.run(['open', '-a', 'System Settings'])
+    def focus_on_desktop(self):
+        """将焦点切换到桌面（最小化所有应用程序窗口）"""
+        # 使用 AppleScript 来最小化所有非桌面的应用程序
+        subprocess.run([
+            'osascript',
+            '-e',
+            """
+            tell application "System Events"
+                set visible of every application process to false
+                set frontmost of process "Finder" to true
+            end tell
+            """
+        ])
+    def open_calendar(self):
+        """打开日历应用"""
+        subprocess.Popen(['open', '-a', 'Calendar'])
