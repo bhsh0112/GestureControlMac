@@ -24,15 +24,22 @@ for key in shortcut_dict:
 
 #TODO:手势识别
 def run_gesture():
-    pass
+    from ultralytics import YOLO
 
-#TODO:主循环
-pre_gesture=None
-while True:
-    gesture=run_gesture()
-    #收起”日历“对应手势后即关闭日历
-    if shortcut_dict[pre_gesture]==Controller.open_calendar and shortcut_dict[gesture]!=Controller.open_calendar:
-        Controller.switch_to_next_recent_app()
+    model = YOLO("./weights/YOLOv10n_gestures.pt")
+    results = model("./imgs")
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print(results)
+
+run_gesture()
+
+# #TODO:主循环
+# pre_gesture=None
+# while True:
+#     gesture=run_gesture()
+#     #收起”日历“对应手势后即关闭日历
+#     if shortcut_dict[pre_gesture]==Controller.open_calendar and shortcut_dict[gesture]!=Controller.open_calendar:
+#         Controller.switch_to_next_recent_app()
     
-    shortcut_dict[gesture]()
-    pre_gesture=gesture
+#     shortcut_dict[gesture]()
+#     pre_gesture=gesture
