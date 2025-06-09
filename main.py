@@ -9,19 +9,23 @@ from control import Controller
 import cv2
 from ultralytics import YOLO
 
+ctrl=Controller()
+
 method_dict={
-    "open_finder":Controller.open_finder,
-    "mouse_click":Controller.mouse_click,
-    "press_space":Controller.press_space,
-    "scroll_up":Controller.scroll_up,
-    "scroll_down":Controller.scroll_down,
-    "take_screenshot_to_clipboard":Controller.take_screenshot_to_clipboard,
-    "open_mission_control":Controller.open_mission_control,
-    "switch_to_next_recent_app":Controller.switch_to_next_recent_app,
-    "open_system_settings":Controller.open_system_settings,
-    "focus_on_desktop":Controller.focus_on_desktop,
-    "open_calendar":Controller.open_calendar
+    "open_finder":ctrl.open_finder,
+    "mouse_click":ctrl.mouse_click,
+    "press_space":ctrl.press_space,
+    "scroll_up":ctrl.scroll_up,
+    "scroll_down":ctrl.scroll_down,
+    "take_screenshot_to_clipboard":ctrl.take_screenshot_to_clipboard,
+    "open_mission_control":ctrl.open_mission_control,
+    "switch_to_next_recent_app":ctrl.switch_to_next_recent_app,
+    "open_system_settings":ctrl.open_system_settings,
+    "focus_on_desktop":ctrl.focus_on_desktop,
+    "open_calendar":ctrl.open_calendar,
+    "do_nothing":ctrl.do_nothing
 }
+gesture_list=["call","like","palm","fist","ok","no_gesture"]
 #设置快捷键
 with open('shortcut.json', 'r', encoding='utf-8') as file:
     shortcut_dict = json.load(file)
@@ -115,7 +119,9 @@ class GestureDetctor:
 
                 
             #TODO:run shortcut
-            print(gesture)
+            self.curGesture=gesture
+            self.output()
+            # print(gesture)
             # Show and output
             cv2.imshow("Frame", self.frame)
             self.video_writer.write(self.frame)
@@ -124,14 +130,19 @@ class GestureDetctor:
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
+            self.preGesture=self.curGesture
+
         cap.release()
         self.video_writer.release()
         cv2.destroyAllWindows()
 
     def output(self):
         #收起”日历“对应手势后即关闭日历
-        if shortcut_dict[self.preGesture]==Controller.open_calendar and shortcut_dict[self.curGesture]!=Controller.open_calendar:
-            Controller.switch_to_next_recent_app()
+        if (not self.curGesture) or (self.curGesture not in gesture_list) or (self.preGesture not in shortcut_dict):
+            return
+        
+        if self.preGesture and shortcut_dict[self.preGesture]==ctrl.open_calendar and shortcut_dict[self.curGesture]!=ctrl.open_calendar:
+            ctrl.switch_to_next_recent_app()
         
         shortcut_dict[self.curGesture]()
         self.curGesture=self.curGesture

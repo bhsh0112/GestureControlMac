@@ -1,7 +1,8 @@
 {
-    "1": "open_finder",
-    "2": "mouse_click",
-    "3": "press_space",
-    "4": "scroll_up",
-    "5": "scroll_down"
+    "call": "open_finder",
+    "like": "mouse_click",
+    "palm": "press_space",
+    "fist": "scroll_up",
+    "ok": "scroll_down",
+    "no_gesture": "do_nothing"
 }

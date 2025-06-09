@@ -68,3 +68,5 @@ class Controller:
     def open_calendar(self):
         """打开日历应用"""
         subprocess.Popen(['open', '-a', 'Calendar'])
+    def do_nothing(self):
+        pass
