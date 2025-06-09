@@ -7,7 +7,8 @@ method_dict={
     "mouse_click":Controller.mouse_click,
     "press_space":Controller.press_space,
     "scroll_up":Controller.scroll_up,
-    "scroll_down":Controller.scroll_down
+    "scroll_down":Controller.scroll_down,
+    "take_screenshot_to_clipboard":Controller.take_screenshot_to_clipboard
 }
 
 #设置快捷键

@@ -1,4 +1,5 @@
 import pyautogui
+import subprocess
 
 class Controller:
     def __init__(self, speed=1.0, interval=0.5):
@@ -34,5 +35,8 @@ class Controller:
         """设置按键间隔时间"""
         self.interval = interval
     def open_finder(self):
-        """在Mac系统中打开访达（Command + Shift + E）"""
-        pyautogui.hotkey('command', 'shift', 'e')
+        """在Mac系统中打开访达"""
+        subprocess.run(['open', '-a', 'Finder'])
+    def take_screenshot_to_clipboard(self):
+        """在Mac系统中截取全屏并复制到剪贴板"""
+        subprocess.run(['screencapture', '-x', '-c'])
