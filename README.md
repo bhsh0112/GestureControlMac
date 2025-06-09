@@ -20,17 +20,26 @@ pip install -r requirements.txt
 
 ## 
 
-| 支持手势 | 命名 |
-| -------- | ---- |
-|          |      |
+|  支持手势  | 命名 |
+| :--------: | :--: |
+| 打电话手势 | call |
+|  竖大拇指  | like |
+|    握拳    | palm |
+|  五指张开  | fist |
+|   ok手势   |  ok  |
 
-| 支持快捷键     | 命名        |
-| -------------- | ----------- |
-| 打开资源管理器 | open_finder |
-| 单击鼠标       | mouse_click |
-| 滚轮上滚       | scroll_up   |
-| 滚轮下滚       | scroll_down |
-| 单击空格       | press_space |
+| 支持快捷键                 | 命名                         |
+| -------------------------- | ---------------------------- |
+| 打开资源管理器             | open_finder                  |
+| 单击鼠标                   | mouse_click                  |
+| 滚轮上滚                   | scroll_up                    |
+| 滚轮下滚                   | scroll_down                  |
+| 单击空格                   | press_space                  |
+| 打开访达                   | open_finder                  |
+| 截屏并存储在剪切板         | take_screenshot_to_clipboard |
+| 切换到下一个最近使用的程序 | switch_to_next_recent_app    |
+| 焦点切换到桌面             | focus_on_desktop             |
+| 打开日历                   | open_calendar                |
 
 
 

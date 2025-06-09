@@ -41,6 +41,7 @@ class Controller:
         """在Mac系统中截取全屏并复制到剪贴板"""
         subprocess.run(['screencapture', '-x', '-c'])
 
+    #TODO：仍未完善
     def open_mission_control(self):
         """在Mac系统中打开任务控制（Mission Control）"""
         subprocess.run(['osascript', '-e', 'tell application "System Events" to key code 100 using {control down}'])

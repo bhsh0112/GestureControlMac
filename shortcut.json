@@ -1,8 +1,8 @@
 {
     "call": "open_finder",
     "like": "mouse_click",
-    "palm": "press_space",
-    "fist": "scroll_up",
+    "palm": "open_calendar",
+    "fist": "switch_to_next_recent_app",
     "ok": "scroll_down",
     "no_gesture": "do_nothing"
 }
